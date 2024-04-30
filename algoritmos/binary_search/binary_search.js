@@ -1,10 +1,24 @@
 const arr = [2, 5, 8, 12, 16, 23, 38, 56, 72, 91];
-const target = 23;
+const target = 8;
 
-let mid = Math.ceil(0 + (arr.length / 2 - 1));
+let left = 0;
+let right = arr.length - 1;
+let mid;
+let result = () => {
+  while (right >= left) {
+    mid = left + Math.floor((right - left) / 2);
+    result = arr[mid];
+    if (arr[mid] == target) {
+      return mid;
+    }
+    if (arr[mid] > target) {
+      right = mid - 1;
+    } else {
+      left = mid + 1;
+    }
+  }
+};
 
-if (arr[mid] != target) {
-  const indexTarget = arr.lastIndexOf(target);
-  console.log(indexTarget);
-} else {
-}
+console.log(
+  "Elemento foi encontrado por meio da binary search " + arr[result()]
+);
