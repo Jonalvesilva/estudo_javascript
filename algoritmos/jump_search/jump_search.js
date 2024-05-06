@@ -21,4 +21,4 @@ for (let i = 0; i < arr.length; i++) {
   }
 }
 
-console.log("Number " + result + "is at index " + result);
+console.log("Number " + result + "is at index " + indexResult);
