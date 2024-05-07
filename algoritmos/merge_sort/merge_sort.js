@@ -1,5 +1,5 @@
-//const arr = [38, 27, 43, 10];
-const arr = [38, 27, 43, 10, 11, 45, 51, 32];
+const arr = [38, 27, 43, 10];
+//const arr = [38, 27, 43, 10, 11, 45, 51, 32]; Depois escreverei o codigo  para mais valores
 let tempArr = Array(2)
   .fill()
   .map(() => []);
@@ -13,49 +13,72 @@ for (let i = 0; i < arr.length; i++) {
 let len = tempArr.length;
 let teste = 0;
 
-while (teste < 2) {
+while (tempArr.length != arr.length) {
   const aux = tempArr.slice();
   tempArr = Array(2 * len)
     .fill()
     .map(() => []);
 
   let count = 0;
-  let half = 0;
+  let index = 0;
+  let half = aux[0].length / 2;
 
   for (let j = 0; j < aux.length; j++) {
     for (let i = 0; i < aux[j].length; i++) {
-      half += 1;
-
-      if (i < half - 1) {
-        count += 1;
-        half = 0;
+      count += 1;
+      if (count > half) {
+        index += 1;
+        count = 1;
       }
-      console.log(count, half);
-      tempArr[count].push(aux[j][i]);
+      tempArr[index].push(aux[j][i]);
     }
 
     len = tempArr.length;
   }
-
-  teste += 1;
-  console.log(tempArr);
 }
 
-/*tempArr = [];
+console.log(tempArr);
+
+let tempArr2 = Array(tempArr.length / 2)
+  .fill()
+  .map(() => []);
+
+const aux = tempArr.slice();
+
+let count = 0;
+let index = 0;
+
+for (let i = 0; i < aux.length; i++) {
+  count += 1;
+
+  if (count > 2) {
+    index += 1;
+    count = 1;
+  }
+  if (count == 2) {
+    aux[i - 1][0] > aux[i][0]
+      ? tempArr2[index].push(aux[i][0], aux[i - 1][0])
+      : tempArr2[index].push(aux[i - 1][0], aux[i][0]);
+  }
+}
+let result = [];
 
 for (let i = 0; i < tempArr2.length; i++) {
-  let half = (i + 1) % 2 == 0;
-  if (half) {
-    tempArr2[i - 1][0] > tempArr2[i][0]
-      ? tempArr.push([tempArr2[i][0], tempArr2[i - 1][0]])
-      : tempArr.push([tempArr2[i - 1][0], tempArr2[i][0]]);
+  if (i == 0) {
+    if (tempArr2[i][i] < tempArr2[i + 1][i]) {
+      result.push(tempArr2[i][i], tempArr2[i + 1][i]);
+    } else {
+      result.push(tempArr2[i + 1][i], tempArr2[i][i]);
+    }
+  }
+
+  if (i == 1) {
+    if (tempArr2[i][i] < tempArr2[i - 1][i]) {
+      result.push(tempArr2[i][i], tempArr2[i - 1][i]);
+    } else {
+      result.push(tempArr2[i - 1][i], tempArr2[i][i]);
+    }
   }
 }
 
-tempArr2 = [];
-
-for (let i = 0; i < tempArr.length; i++) {
-  let half = (i + 1) % 2 == 0;
-  if (half) {
-  }
-}*/
+console.log(result);
