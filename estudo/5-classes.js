@@ -51,4 +51,4 @@ class Car {
 //Para executarmos um metodo usamos assim:
 
 new Car("Ford", "2004").age(); // Neste exemplo eu não tinha instancia dele então tive que instancia lo para acessar seu metodo
-obj.age(); //Como aqui eu ja tinha instanciado e guardado na variavel objeto, basta apenas chamar o metodo pela variavel
+obj.age(); //Como aqui eu ja tinha instanciado e guardado na variavel objeto, basta apenas chamar o metodo pela variavel. Teste
