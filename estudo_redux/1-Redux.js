@@ -50,3 +50,38 @@
 // 2 - Vamos começar a prencher a função userReducer. Uma função reducer recebe dois parametros (state=initialState, action)
 // 3 - Dentro da função vamos criar o if para monitorar o action.type. O nome da type deve ser composto por entidade/evento ('user/login')
 // 4 - Mesmo que o reducer não entre nos if, sempre deve retornar o state
+// 5 - Deve retirar o metadata do RootLayout e adicionar o use client para o Provider funcionar
+// 6 - Voce pode adicionar um metadata dinamico
+// 7 - Devemos alterar a logica do reducer, colocando um switch ao invés de if e o retorno receber o payload da action:
+
+/* 
+export const userReducer = (state = initialState, action: any) => {
+  switch (action.type) {
+    case "user/login":
+      return { currentUser: action.payload };
+    case "user/logout":
+      return { currentUser: null };
+    default:
+      return state;
+  }
+};
+*/
+
+/* 
+
+*/
+
+//Acessando os Dados do UserReducer
+
+// 1 - No componente que for usado, importe o useSelector do react-redux
+// 2 - Acessamos o reducer assim: const {currentUser} = useSelector((rootReducer:any)=>rootReducer.userReducer)
+// Note que estamos chamando o userReducer da rootReducer e spread o seu valor.
+
+/* 
+
+*/
+
+//Despachando a action para o UserReducer
+
+// 1 - Importarmos o useDispatch do react-redux e criamos a função dispatch: const dispatch = useDispatch();
+// 2 - No dispatch passamos a action (obj), contendo o type e o payload (dados): dispatch({type:'user/login', payload:(dados)})

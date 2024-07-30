@@ -3,8 +3,12 @@ const initialState = {
 };
 
 export const userReducer = (state = initialState, action: any) => {
-  if (action.type == "user/login") {
-    return { currentUser: 10 };
+  switch (action.type) {
+    case "user/login":
+      return { currentUser: action.payload };
+    case "user/logout":
+      return { currentUser: null };
+    default:
+      return state;
   }
-  return state;
 };
