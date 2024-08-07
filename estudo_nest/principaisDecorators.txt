@@ -1,0 +1,35 @@
+Controllers
+    
+    @Controller()
+    @Get()
+    @Post()
+    @Put()
+    @Delete()
+    @Patch()
+    @Options()
+    @Head()
+    @All()
+
+Rotas e Métodos
+
+    @HttpCode()
+    @Header()
+    @Redirect()
+    Request (Solicitação)
+    @Req()
+    @Res()
+    @Next()
+    @Session()
+    @Param()
+    @Query()
+    @Body()
+    @Headers()
+    @Ip()
+    @HostParam()
+
+Outros
+    
+    @Module()
+    @Injectable()
+    @Global()
+    @Catch()
